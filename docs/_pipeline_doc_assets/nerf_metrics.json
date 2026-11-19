@@ -1,0 +1,115 @@
+{
+  "definition": {
+    "psnr": "PSNR from the MSE over all pixels in the 40-frame test set",
+    "ssim": "Mean of per-frame RGB SSIM values",
+    "background": "RGBA ground truth composited on white",
+    "lpips": "Not computed because the local evaluation environment has no PyTorch or LPIPS package"
+  },
+  "objects": [
+    {
+      "name": "盆栽",
+      "experiment": "plant_360",
+      "dataset": "object_00184cc3",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 30.51496866929049,
+      "ssim": 0.9526069700717926,
+      "lpips": null
+    },
+    {
+      "name": "草棚推车",
+      "experiment": "cart_360",
+      "dataset": "object_001cfadf",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 26.333293005640517,
+      "ssim": 0.9337220177054405,
+      "lpips": null
+    },
+    {
+      "name": "风车",
+      "experiment": "windmill_360",
+      "dataset": "object_0046f208",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 27.037780253921838,
+      "ssim": 0.9090542241930961,
+      "lpips": null
+    },
+    {
+      "name": "烤鸡",
+      "experiment": "roast_chicken_360",
+      "dataset": "object_004fb4d7",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 27.153788858006855,
+      "ssim": 0.8921667844057083,
+      "lpips": null
+    },
+    {
+      "name": "红色车辆",
+      "experiment": "red_vehicle_360",
+      "dataset": "object_00c7005a",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 26.586954782013027,
+      "ssim": 0.9412549614906311,
+      "lpips": null
+    },
+    {
+      "name": "鸭子",
+      "experiment": "duck_360",
+      "dataset": "object_00f980c0",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 34.41039036250798,
+      "ssim": 0.9692702785134315,
+      "lpips": null
+    },
+    {
+      "name": "市场摊位",
+      "experiment": "market_stall_360",
+      "dataset": "object_05437330",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 25.463652946676323,
+      "ssim": 0.9246558785438538,
+      "lpips": null
+    },
+    {
+      "name": "酒桶架",
+      "experiment": "barrel_rack_360",
+      "dataset": "object_0269ed15",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 22.64624837423503,
+      "ssim": 0.8985046461224556,
+      "lpips": null
+    },
+    {
+      "name": "城堡",
+      "experiment": "castle_large_360",
+      "dataset": "object_04794e1a",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 26.55826960273099,
+      "ssim": 0.9276720345020294,
+      "lpips": null
+    },
+    {
+      "name": "木屋",
+      "experiment": "cottage_360_retry",
+      "dataset": "object_06b9953a",
+      "checkpoint": 200000,
+      "test_frames": 40,
+      "psnr_db": 31.605341742306074,
+      "ssim": 0.9602460071444512,
+      "lpips": null
+    }
+  ],
+  "mean": {
+    "psnr_db": 27.831068859732916,
+    "ssim": 0.930915380269289,
+    "lpips": null
+  }
+}

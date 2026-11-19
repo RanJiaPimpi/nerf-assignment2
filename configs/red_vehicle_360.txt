@@ -1,0 +1,17 @@
+expname = red_vehicle_360
+basedir = ./logs
+datadir = ./data/nerf_synthetic/object_00c7005a
+dataset_type = blender
+
+no_batching = True
+use_viewdirs = True
+white_bkgd = True
+testskip = 1
+
+N_samples = 64
+N_importance = 128
+N_rand = 1024
+
+precrop_iters = 500
+precrop_frac = 0.5
+lrate_decay = 500

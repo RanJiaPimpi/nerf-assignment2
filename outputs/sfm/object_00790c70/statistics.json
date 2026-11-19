@@ -1,0 +1,75 @@
+{
+  "dataset": "object_00790c70",
+  "input_images": 144,
+  "database_images": 144,
+  "keypoints": 32993,
+  "raw_matches": 36892,
+  "matched_pairs": 10296,
+  "verified_pairs": 10296,
+  "verified_inlier_matches": 31527,
+  "registered_images": 110,
+  "sparse_points": 3365,
+  "observations": 15933,
+  "mean_track_length": 4.734918276374443,
+  "mean_observations_per_registered_image": 144.84545454545454,
+  "mean_reprojection_error": 0.9368558723880126,
+  "pose_metrics_after_similarity_alignment": {
+    "registered_with_ground_truth": 110,
+    "similarity_scale": 1.0582181570817624,
+    "camera_center_rmse": 0.043198355918547926,
+    "camera_center_median_error": 0.037187414972062835,
+    "rotation_mean_error_degrees": 0.6408009241547324,
+    "rotation_median_error_degrees": 0.5898367345772966,
+    "estimated_camera_angle_x": 0.8761066985725221,
+    "estimated_focal_length_x": 546.5360427920696,
+    "estimated_focal_length_y": 546.2452310522827
+  },
+  "match_visualizations": [
+    {
+      "file": "match_00_r_111_r_112.png",
+      "image1": "r_111.png",
+      "image2": "r_112.png",
+      "inliers": 148
+    },
+    {
+      "file": "match_01_r_111_r_135.png",
+      "image1": "r_111.png",
+      "image2": "r_135.png",
+      "inliers": 113
+    },
+    {
+      "file": "match_02_r_086_r_085.png",
+      "image1": "r_086.png",
+      "image2": "r_085.png",
+      "inliers": 103
+    },
+    {
+      "file": "match_03_r_130_r_129.png",
+      "image1": "r_130.png",
+      "image2": "r_129.png",
+      "inliers": 96
+    },
+    {
+      "file": "match_04_r_090_r_091.png",
+      "image1": "r_090.png",
+      "image2": "r_091.png",
+      "inliers": 90
+    },
+    {
+      "file": "match_05_r_097_r_096.png",
+      "image1": "r_097.png",
+      "image2": "r_096.png",
+      "inliers": 84
+    }
+  ],
+  "timings": {
+    "prepare_masks_seconds": 0.5272138000000268,
+    "feature_extraction_seconds": 2.2558309000451118,
+    "matching_seconds": 4.344101799884811,
+    "incremental_mapping_seconds": 6.046777000185102
+  },
+  "software": {
+    "pycolmap": "4.2.1",
+    "opencv": "5.1.0"
+  }
+}

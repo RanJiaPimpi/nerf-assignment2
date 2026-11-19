@@ -1,0 +1,30 @@
+**/.ipynb_checkpoints
+**/__pycache__
+**/node_modules/
+.venv/
+
+# Local datasets, training checkpoints, and downloaded archives
+data/*
+data.zip
+logs/*
+tools/colmap-*/
+
+# Generated document previews used only for local QA
+docs/*.docx
+docs/_qa_render_results*/
+docs/_rendered_pipeline_doc/
+
+# Large or reproducible SfM intermediates. Keep statistics, estimated poses,
+# sparse_points.ply, summary.json, and the match visualizations below.
+outputs/sfm_turntable/
+outputs/sfm/**/database.db
+outputs/sfm/**/sparse/
+
+# Generated image/video intermediates
+*.png
+!outputs/sfm/**/matches/*.png
+*.mp4
+*.npy
+*.npz
+*.dae
+*.log

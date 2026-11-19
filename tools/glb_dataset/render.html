@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: transparent; }
+      canvas { display: block; }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "/three/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from 'three';
+      import { GLTFLoader } from '/three/examples/jsm/loaders/GLTFLoader.js';
+      import { RoomEnvironment } from '/three/examples/jsm/environments/RoomEnvironment.js';
+
+      const width = 512;
+      const height = 512;
+      const requestedExposure = Number(new URLSearchParams(window.location.search).get('exposure'));
+      const exposure = Number.isFinite(requestedExposure) ? requestedExposure : 0.9;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+      camera.up.set(0, 0, 1);
+
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        preserveDrawingBuffer: true,
+      });
+      renderer.setPixelRatio(1);
+      renderer.setSize(width, height, false);
+      renderer.setClearColor(0xffffff, 0);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = exposure;
+      document.body.appendChild(renderer.domElement);
+
+      const pmremGenerator = new THREE.PMREMGenerator(renderer);
+      scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x404040, 2.4));
+      const key = new THREE.DirectionalLight(0xffffff, 3.0);
+      key.position.set(4, -4, 6);
+      scene.add(key);
+      const fill = new THREE.DirectionalLight(0xdde8ff, 1.8);
+      fill.position.set(-5, -2, 3);
+      scene.add(fill);
+      const rim = new THREE.DirectionalLight(0xffe8d0, 1.5);
+      rim.position.set(2, 5, 1);
+      scene.add(rim);
+
+      const loader = new GLTFLoader();
+      window.modelReady = new Promise((resolve, reject) => {
+        loader.load('/model.glb', (gltf) => {
+          const model = gltf.scene;
+          model.traverse((node) => {
+            if (node.isMesh) {
+              node.frustumCulled = false;
+              if (node.material) node.material.side = THREE.DoubleSide;
+            }
+          });
+
+          const sourceBounds = new THREE.Box3().setFromObject(model);
+          const center = sourceBounds.getCenter(new THREE.Vector3());
+          const size = sourceBounds.getSize(new THREE.Vector3());
+          const scale = 2.0 / Math.max(size.x, size.y, size.z);
+
+          const normalized = new THREE.Group();
+          const yUpToZUp = new THREE.Group();
+          yUpToZUp.rotation.x = Math.PI / 2;
+          model.position.copy(center).multiplyScalar(-1);
+          normalized.scale.setScalar(scale);
+          yUpToZUp.add(model);
+          normalized.add(yUpToZUp);
+          scene.add(normalized);
+
+          const normalizedBounds = new THREE.Box3().setFromObject(normalized);
+          window.modelInfo = {
+            sourceCenter: center.toArray(),
+            sourceSize: size.toArray(),
+            normalizationScale: scale,
+            normalizedMin: normalizedBounds.min.toArray(),
+            normalizedMax: normalizedBounds.max.toArray(),
+          };
+          resolve(window.modelInfo);
+        }, undefined, reject);
+      });
+
+      function rowMajorMatrix(matrix) {
+        const e = matrix.elements;
+        return [
+          [e[0], e[4], e[8], e[12]],
+          [e[1], e[5], e[9], e[13]],
+          [e[2], e[6], e[10], e[14]],
+          [e[3], e[7], e[11], e[15]],
+        ];
+      }
+
+      window.renderFrame = async (azimuthDegrees, elevationDegrees, radius = 4.0) => {
+        await window.modelReady;
+        const azimuth = THREE.MathUtils.degToRad(azimuthDegrees);
+        const elevation = THREE.MathUtils.degToRad(elevationDegrees);
+        const horizontalRadius = radius * Math.cos(elevation);
+        camera.position.set(
+          horizontalRadius * Math.cos(azimuth),
+          horizontalRadius * Math.sin(azimuth),
+          radius * Math.sin(elevation),
+        );
+        camera.up.set(0, 0, 1);
+        camera.lookAt(0, 0, 0);
+        camera.updateMatrixWorld(true);
+        renderer.render(scene, camera);
+        return {
+          transform_matrix: rowMajorMatrix(camera.matrixWorld),
+          camera_angle_x: THREE.MathUtils.degToRad(camera.fov),
+          model_info: window.modelInfo,
+        };
+      };
+    </script>
+  </body>
+</html>

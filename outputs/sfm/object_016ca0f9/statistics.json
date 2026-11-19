@@ -1,0 +1,75 @@
+{
+  "dataset": "object_016ca0f9",
+  "input_images": 144,
+  "database_images": 144,
+  "keypoints": 19100,
+  "raw_matches": 10893,
+  "matched_pairs": 10296,
+  "verified_pairs": 10296,
+  "verified_inlier_matches": 11415,
+  "registered_images": 85,
+  "sparse_points": 1227,
+  "observations": 6122,
+  "mean_track_length": 4.989405052974735,
+  "mean_observations_per_registered_image": 72.02352941176471,
+  "mean_reprojection_error": 0.8743113294467756,
+  "pose_metrics_after_similarity_alignment": {
+    "registered_with_ground_truth": 85,
+    "similarity_scale": 1.0175212575539638,
+    "camera_center_rmse": 0.09451759699797439,
+    "camera_center_median_error": 0.06865878057362783,
+    "rotation_mean_error_degrees": 1.3164379773939967,
+    "rotation_median_error_degrees": 1.065134856137111,
+    "estimated_camera_angle_x": 0.8659418943365634,
+    "estimated_focal_length_x": 553.8466880817858,
+    "estimated_focal_length_y": 554.0508053519792
+  },
+  "match_visualizations": [
+    {
+      "file": "match_00_r_135_r_136.png",
+      "image1": "r_135.png",
+      "image2": "r_136.png",
+      "inliers": 80
+    },
+    {
+      "file": "match_01_r_131_r_130.png",
+      "image1": "r_131.png",
+      "image2": "r_130.png",
+      "inliers": 58
+    },
+    {
+      "file": "match_02_r_123_r_122.png",
+      "image1": "r_123.png",
+      "image2": "r_122.png",
+      "inliers": 53
+    },
+    {
+      "file": "match_03_r_116_r_115.png",
+      "image1": "r_116.png",
+      "image2": "r_115.png",
+      "inliers": 50
+    },
+    {
+      "file": "match_04_r_020_r_021.png",
+      "image1": "r_020.png",
+      "image2": "r_021.png",
+      "inliers": 46
+    },
+    {
+      "file": "match_05_r_031_r_030.png",
+      "image1": "r_031.png",
+      "image2": "r_030.png",
+      "inliers": 44
+    }
+  ],
+  "timings": {
+    "prepare_masks_seconds": 0.49995269998908043,
+    "feature_extraction_seconds": 2.023705800063908,
+    "matching_seconds": 1.1818319000303745,
+    "incremental_mapping_seconds": 1.7066551998723298
+  },
+  "software": {
+    "pycolmap": "4.2.1",
+    "opencv": "5.1.0"
+  }
+}

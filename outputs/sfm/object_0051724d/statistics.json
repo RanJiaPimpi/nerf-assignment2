@@ -1,0 +1,75 @@
+{
+  "dataset": "object_0051724d",
+  "input_images": 144,
+  "database_images": 144,
+  "keypoints": 36083,
+  "raw_matches": 72237,
+  "matched_pairs": 10296,
+  "verified_pairs": 10296,
+  "verified_inlier_matches": 79141,
+  "registered_images": 133,
+  "sparse_points": 4026,
+  "observations": 25890,
+  "mean_track_length": 6.43070044709389,
+  "mean_observations_per_registered_image": 194.66165413533835,
+  "mean_reprojection_error": 0.8382439829889868,
+  "pose_metrics_after_similarity_alignment": {
+    "registered_with_ground_truth": 133,
+    "similarity_scale": 1.071929913829926,
+    "camera_center_rmse": 0.22240001347321695,
+    "camera_center_median_error": 0.06846119872914327,
+    "rotation_mean_error_degrees": 1.53738610410337,
+    "rotation_median_error_degrees": 0.9145983804079707,
+    "estimated_camera_angle_x": 0.8708314799941573,
+    "estimated_focal_length_x": 550.3101026740643,
+    "estimated_focal_length_y": 550.0771904447278
+  },
+  "match_visualizations": [
+    {
+      "file": "match_00_r_059_r_060.png",
+      "image1": "r_059.png",
+      "image2": "r_060.png",
+      "inliers": 225
+    },
+    {
+      "file": "match_01_r_048_r_071.png",
+      "image1": "r_048.png",
+      "image2": "r_071.png",
+      "inliers": 162
+    },
+    {
+      "file": "match_02_r_037_r_038.png",
+      "image1": "r_037.png",
+      "image2": "r_038.png",
+      "inliers": 151
+    },
+    {
+      "file": "match_03_r_141_r_142.png",
+      "image1": "r_141.png",
+      "image2": "r_142.png",
+      "inliers": 146
+    },
+    {
+      "file": "match_04_r_135_r_136.png",
+      "image1": "r_135.png",
+      "image2": "r_136.png",
+      "inliers": 141
+    },
+    {
+      "file": "match_05_r_035_r_059.png",
+      "image1": "r_035.png",
+      "image2": "r_059.png",
+      "inliers": 134
+    }
+  ],
+  "timings": {
+    "prepare_masks_seconds": 0.4868263001553714,
+    "feature_extraction_seconds": 1.8802416999824345,
+    "matching_seconds": 3.2412566000130028,
+    "incremental_mapping_seconds": 17.546798099996522
+  },
+  "software": {
+    "pycolmap": "4.2.1",
+    "opencv": "5.1.0"
+  }
+}

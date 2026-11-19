@@ -1,0 +1,25 @@
+expname = cottage_360_retry
+basedir = ./logs
+datadir = ./data/nerf_synthetic/object_06b9953a
+dataset_type = blender
+
+no_batching = True
+use_viewdirs = True
+white_bkgd = True
+testskip = 1
+
+N_samples = 64
+N_importance = 128
+N_rand = 1024
+
+# Keep density gradients alive during the early stage and reduce the chance
+# of converging to the all-white empty-scene solution.
+raw_noise_std = 1.0
+precrop_iters = 2000
+precrop_frac = 0.5
+lrate_decay = 500
+
+# Produce an early diagnostic render so a failed retry can be stopped sooner.
+i_video = 10000
+i_weights = 10000
+i_testset = 50000
